@@ -3,6 +3,7 @@
   padding: 0;
   font-size: 1em;
   box-sizing: border-box;
+  line-height: 1;
 }
 
 body {
@@ -13,50 +14,78 @@ body {
 }
 
 .info-container {
+  display: grid;
+  grid-template-areas:
+    "image"
+    "info"
+    "foot";
+  grid-template-columns: 100%;
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  padding: 1em 0 0 0;
 }
 
-header {
-  position: relative;
-}
-
-.header .image figure {
+figure {
   display: block;
-  padding-top: 1em;
-  position: absolute;
-  margin: 0 auto;
-  left: -50%;
-  margin-left: 50%;
+  line-height: 0;
 }
 
-cite {
-  display: block;
-}
-
-.img {
+img {
   width: 100%;
 }
 
+header {
+  grid-area: image;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+header figure::before {
+  content: "";
+  background-color: #ff5062;
+  display: block;
+  height: 12px;
+  border-left: solid 9px white;
+  border-right: solid 9px white;
+}
+
 .info {
-  padding: 1em 1em 2em;
+  grid-area: info;
+  padding: 1em 1em 1.5em;
+  top: 0px;
   position: relative;
   width: 96%;
   background-color: #ff5062;
   margin: 0 auto;
 }
 
-.intro {
-  line-height: 2;
+.info .bordered {
+  border-radius: 18px;
+  border: white 3px solid;
 }
 
-.artist-title {
+.info .bordered.inner {
+  border-radius: 10px;
+  border: white 1px solid;
+  padding: 0.25em 1em;
+  margin: 5px;
+  padding-bottom: 2em;
+}
+
+.info .intro {
+  line-height: 2;
+  letter-spacing: 2px;
+}
+
+.info .artist-title {
   padding: 0 1em 1em;
 }
 
-.title {
+.info .title {
   font-size: 1.25em;
   letter-spacing: 3px;
   font-weight: 500;
@@ -82,14 +111,15 @@ cite {
   margin-bottom: 0.5em;
   font-weight: 500;
 }
+
 .info blockquote cite {
   display: block;
   text-transform: uppercase;
   font-style: normal;
-  font-size: 0.75em;
-  line-height: 1;
+  font-size: 0.7em;
+  line-height: 2;
   letter-spacing: 1px;
-  margin-top: -0.25em;
+  margin-top: -0.33em;
 }
 
 .info .release-date {
@@ -99,72 +129,205 @@ cite {
   font-size: 2.5em;
 }
 
-.info .bordered {
-  border-radius: 18px;
-  border: white 3px solid;
-}
-
-.info .bordered.inner {
-  border-radius: 10px;
-  border: white 1px solid;
-  padding: 0.25em 1em;
-  margin: 5px;
-  padding-bottom: 2em;
-}
-
 .info .preorder {
   display: block;
-  border: 3px white solid;
+  border: 2px white solid;
   padding: 0.75em 1.5em;
-  border-radius: 21px;
+  border-radius: 15px;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
   background-color: #ff5062;
   position: absolute;
   left: 50%;
-  width: 240px;
-  margin-left: -120px;
+  width: 260px;
+  margin-left: -130px;
   box-sizing: border-box;
-  bottom: 1em;
+  bottom: 0.5em;
   font-family: Futura, sans-serif;
+  font-weight: 200;
   letter-spacing: 1px;
-  font-size: 1.125em;
+  font-size: 1.25em;
+  transition: all 500ms ease-in-out;
 }
 
-img {
-  width: 100%;
+.info .preorder:hover {
+  color: #ff5062;
+  background-color: white;
+  transition: all 500ms ease-in-out;
 }
 
-footer {
+.formats {
+  grid-area: foot;
   background-color: white;
   color: #e45161;
   padding: 1em;
 }
 
-/* WEBFONTS */
-@font-face {
-  font-family: "BellGothicBlack";
-  src: url("fontkits/bell-gothic-black/belgothk-webfont.eot");
-  src: url("fontkits/bell-gothic-black/belgothk-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("fontkits/bell-gothic-black/belgothk-webfont.woff") format("woff"),
-    url("fontkits/bell-gothic-black/belgothk-webfont.ttf") format("truetype"),
-    url("fontkits/bell-gothic-black/belgothk-webfont.svg#bellgothic_blk_btblack")
-      format("svg");
-  font-weight: normal;
-  font-style: normal;
+@media only screen and (min-width: 767px) {
+  .info-container {
+    display: grid;
+    grid-template-areas:
+      "info image"
+      "foot foot";
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  header figure::before {
+    content: "";
+    background-color: none;
+    display: block;
+    height: 0px;
+    border-left: none;
+    border-right: none;
+  }
+
+  .info {
+    grid-area: info;
+    padding: 1em 1em 1.5em;
+    top: 0px;
+    position: relative;
+    width: 100%;
+    background-color: #ff5062;
+    border-top: 6px white solid;
+    margin: 0 auto;
+    font-size: 0.75em;
+  }
+
+  .info img {
+    width: 85%;
+  }
+
+  .info blockquote cite {
+    font-size: 0.6em;
+    margin-top: 0em;
+    line-height: 1;
+  }
+
+  .info .release-date {
+    margin-bottom: 0.25em;
+  }
+
+  .info .preorder {
+    padding: 0.75em 1.25em;
+    width: 220px;
+    margin-left: -110px;
+  }
+
+  .formats {
+    font-size: 0.75em;
+  }
 }
 
-@font-face {
-  font-family: "BellGothicRegular";
-  src: url("fontkits/bell-gothic-regular/belgothn-webfont.eot");
-  src: url("fontkits/bell-gothic-regular/belgothn-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("fontkits/bell-gothic-regular/belgothn-webfont.woff") format("woff"),
-    url("fontkits/bell-gothic-regular/belgothn-webfont.ttf") format("truetype"),
-    url("fontkits/bell-gothic-regular/belgothn-webfont.svg#bellgothic_btroman")
-      format("svg");
-  font-weight: normal;
-  font-style: normal;
+@media only screen and (min-width: 969px) {
+  .info img {
+    width: 90%;
+  }
+
+  .info {
+    border-top: 9px white solid;
+    font-size: 0.9em;
+  }
+
+  .formats {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  .info-container {
+    display: grid;
+    grid-template-areas:
+      "info image"
+      "foot foot";
+    grid-template-columns: 55% 45%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .info {
+    font-size: 0.9em;
+  }
+
+  .info img {
+    width: 75%;
+  }
+
+  .info blockquote {
+    margin-top: 0;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .info blockquote img {
+    width: 70%;
+  }
+
+  .info .release-date {
+    margin-bottom: 0.25em;
+    font-size: 2.25em;
+  }
+
+  .formats {
+    font-size: 1em;
+    padding-top: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 1239px) {
+  .info .release-date {
+    padding: 0.125em 0;
+    font-size: 3em;
+  }
+
+  .info {
+    border-top: 12px white solid;
+    font-size: 0.9em;
+  }
+
+  .formats {
+    font-size: 1.25em;
+    padding-top: 0.75em;
+  }
+}
+
+@media only screen and (min-width: 1438px) {
+  .info .release-date {
+    padding: 0.125em 0;
+    font-size: 2.75em;
+  }
+
+  .info {
+    border-top: 18px white solid;
+    font-size: 1em;
+  }
+
+  .info img {
+    width: 75%;
+  }
+
+  .info .title {
+    font-size: 1.75em;
+  }
+
+  .info blockquote img {
+    width: 66%;
+  }
+
+  .info blockquote cite {
+    font-size: 0.9em;
+  }
+
+  .formats {
+    font-size: 1.25em;
+    padding-top: 0.75em;
+  }
+
+  .info .preorder {
+    padding: 0.75em 1.25em;
+    width: 300px;
+    margin-left: -150px;
+  }
 }
