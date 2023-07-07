@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 100%;
+  color: white;
+  text-transform: uppercase;
+}
+
+.info-container {
+  text-align: center;
+  width: 96%;
+  background-color: #ff5062;
+  margin: 0 auto;
+}
+
+cite {
+  display: block;
+}
+
+.img {
+  width: 100%;
+}
+
+.info {
+  padding: 1em 1em 2em;
+  padding-top: 66vh;
+  position: relative;
+}
+
+.intro {
+  line-height: 2;
+}
+
+.artist-title {
+  padding: 0 1em 1em;
+}
+
+.title {
+  font-size: 1.25em;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.info .intro::before,
+.info .intro::after {
+  display: inline-block;
+  content: "";
+  border-top: 1px solid white;
+  width: 21%;
+  line-height: 0;
+  position: relative;
+  top: -0.33em;
+  margin: 0 6px;
+}
+
+.info blockquote,
+.info .release-date {
+  text-align: center;
+  text-transform: none;
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+.info blockquote cite {
+  display: block;
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 0.75em;
+  line-height: 1;
+  letter-spacing: 1px;
+  margin-top: -0.25em;
+}
+
+.info .release-date {
+  font-family: "bell-centennial-std-address", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5em;
+}
+
+.info .bordered {
+  border-radius: 18px;
+  border: white 3px solid;
+}
+
+.info .bordered.inner {
+  border-radius: 10px;
+  border: white 1px solid;
+  padding: 0.25em 1em;
+  margin: 5px;
+  padding-bottom: 2em;
+}
+
+.info .preorder {
+  display: block;
+  border: 3px white solid;
+  padding: 0.75em 1.5em;
+  border-radius: 21px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #ff5062;
+  position: absolute;
+  left: 50%;
+  width: 240px;
+  margin-left: -120px;
+  box-sizing: border-box;
+  bottom: 1em;
+  font-family: Futura, sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.125em;
+}
+
+.image figure {
+  display: block;
+  padding-top: 1em;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  left: -50%;
+  margin-left: 50%;
+}
+
+img {
+  width: 100%;
+}
+
+footer {
+  background-color: white;
+  color: #e45161;
+  padding: 1em;
+}
+
+/* WEBFONTS */
+@font-face {
+  font-family: "BellGothicBlack";
+  src: url("fontkits/bell-gothic-black/belgothk-webfont.eot");
+  src: url("fontkits/bell-gothic-black/belgothk-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fontkits/bell-gothic-black/belgothk-webfont.woff") format("woff"),
+    url("fontkits/bell-gothic-black/belgothk-webfont.ttf") format("truetype"),
+    url("fontkits/bell-gothic-black/belgothk-webfont.svg#bellgothic_blk_btblack")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BellGothicRegular";
+  src: url("fontkits/bell-gothic-regular/belgothn-webfont.eot");
+  src: url("fontkits/bell-gothic-regular/belgothn-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fontkits/bell-gothic-regular/belgothn-webfont.woff") format("woff"),
+    url("fontkits/bell-gothic-regular/belgothn-webfont.ttf") format("truetype"),
+    url("fontkits/bell-gothic-regular/belgothn-webfont.svg#bellgothic_btroman")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
